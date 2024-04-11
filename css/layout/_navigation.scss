@@ -1,0 +1,174 @@
+.nav {
+   &__list {
+      // @include display-flex;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      position: relative;
+      z-index: 100;
+   }
+   &__item {
+      position: relative;
+      @include respond(phone) {
+         position: static;
+      }
+      &:hover .nav__link {
+         background-color: $color-white;
+         color: #9fdfff;
+         box-shadow: inset .4rem  -.4rem  0 .4rem  #9fdfff;
+         @include respond(phone) {
+            box-shadow: inset .1rem -.1rem 0 .1rem #9fdfff;
+         }
+      }
+   }
+   &__link {
+      height: 23.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 0;
+      background: $color-blue;
+      color: $color-white;
+      // position: relative;
+      // z-index: 100;
+      // overflow: hidden;
+      box-shadow: $box-shadow;
+      transition:
+         background-color 100ms ease,
+         box-shadow 150ms ease;
+      // transition-timing-function: cubic-bezier(0.57, 0.21, 0.69, 3.25);
+      font-size: 4rem;
+      @include respond(phone) {
+         height: 9rem;
+         font-size: 1rem;
+      }
+
+      &:hover {
+         background-color: $color-white;
+         color: #9fdfff;
+         box-shadow: inset .4rem -.4rem 0 .4rem #9fdfff;
+      }
+      &:hover i {
+         transform: translateY(0);
+      }
+      &:hover span {
+         transform: translateY(0);
+         opacity: 1;
+         color: #1a8fe7;
+         // background: linear-gradient(45deg, #ffffff, #8cc5f0);
+         background-clip: text;
+      }
+      i {
+         display: block;
+         font-size: 10rem;
+         transform: translateY(2.5rem);
+         margin-bottom: 1rem;
+         @include respond(phone) {
+            font-size: 3rem;
+            transform: translateY(1.5rem);
+         }
+      }
+      span {
+         display: block;
+         // margin-top: 0.2em;
+         transition:
+            transform 300ms ease,
+            opacity 150ms ease;
+         transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+         transform: translateY(7rem);
+         opacity: 0;
+         font-weight: 600;
+         @include respond(phone) {
+            transform: translateY(3rem);
+         }
+      }
+   }
+}
+@include respond(phone) {
+   .sub-menu__list.active {
+      transform: translateY(0);
+   }
+}
+@include respond(tab-land) {
+   .drop-btn:hover .sub-menu__list {
+      transform: translateY(0);
+   }
+}
+
+.sub-menu {
+   &__list {
+      position: absolute;
+      width: 120%;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(-70rem);
+      // align-items: center;
+      // justify-content: center;
+      top: 100%;
+      right: 0;
+      @include respond(phone) {
+         width: 100%;
+      }
+   }
+   &__item {
+      width: 100%;
+      text-align: left;
+      @include respond(phone) {
+         text-align: center;
+      }
+   }
+   &__link {
+      background: #9fdfff;
+      color: $color-white;
+      display: block;
+      font-size: 2.1rem;
+      font-weight: 500;
+      height: 9rem;
+      align-items: flex-start;
+      padding: 3rem;
+      transition: all 110ms ease;
+      transition: 0.2s cubic-bezier(0.57, 0.21, 0.69, 3.25);
+      box-shadow: 0 -2rem 4rem 0 rgba(0, 0, 0, 0.1) inset;
+      @include respond(phone) {
+         font-size: 1.1rem;
+         height: 3rem;
+         padding: 2rem;
+         align-items: center;
+      }
+      &:hover {
+         background: #fff;
+         // padding-left: 1.8em;
+         box-shadow: inset .4rem -.4rem 0 .4rem #9fdfff;
+         border-color: #f1f1f1;
+         color: $color-blue;
+         @include respond(phone) {
+            box-shadow: inset .1rem -.1rem 0 .1rem #9fdfff;
+         }
+      }
+   }
+}
+.arrow {
+   &::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 1.5rem solid transparent;
+      border-right: 1.5rem solid transparent;
+      border-bottom: 1.5rem solid #9fdfff;
+      // transition:
+      //    transform 700ms ease,
+      //    opacity 900ms ease;
+      // transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+      position: absolute;
+      bottom: 0;
+      @include respond(phone) {
+         border-left: .7rem solid transparent;
+         border-right: .7rem solid transparent;
+         border-bottom: .7rem solid #9fdfff;
+      }
+   }
+}
+.drop-btn:hover .arrow::before {
+   border: none;
+}
