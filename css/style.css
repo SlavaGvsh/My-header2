@@ -163,6 +163,11 @@ body.checked {
     box-shadow: inset 0.1rem -0.1rem 0 0.1rem #9fdfff;
   }
 }
+@media (max-width: 768px) {
+  .nav__item.active .sub-menu__list {
+    transform: translateY(0);
+  }
+}
 .nav__link {
   height: 23.4rem;
   display: flex;
@@ -223,11 +228,6 @@ body.checked {
   }
 }
 
-@media (max-width: 768px) {
-  .sub-menu__list.active {
-    transform: translateY(0);
-  }
-}
 @media (min-width: 769px) {
   .drop-btn:hover .sub-menu__list {
     transform: translateY(0);
